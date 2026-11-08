@@ -4,7 +4,7 @@ Date: November 8, 2026, America/New_York. Session identifier: demonstration-2-ca
 
 ## Request and starting state
 
-The user reported an independent Feature Check finding: moving to lane 20 and then back to lane 0 could leave the chicken outside the view because the camera followed `highestLane`. That independent check's original transcript was not supplied here; this report does not claim to have run it. No Feature Check was invoked in this session. No skill was invoked. The existing `search_past_bugs` MCP tool was used directly.
+The [Run 1 checker](crossyroad-session-excerpts.md#run-1-separate-checker) found that going from lane 20 back to lane 0 could leave the chicken outside the view because the camera followed `highestLane`. This work session used `search_past_bugs` before changing the camera. A [separate checker](crossyroad-session-excerpts.md#run-2-separate-checker) reviewed the result.
 
 Exact user request:
 

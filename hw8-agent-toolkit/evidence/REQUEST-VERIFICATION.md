@@ -1,8 +1,8 @@
-# MCP verification for this request
+# MCP verification
 
 Verified November 8, 2026.
 
-The requested server, requirements, Python 3.12 virtual environment, and absolute-path Codex registration already existed when this request began. They were inspected and reused. No skill files or Codex configuration settings were changed; SHA-256 comparisons against `request-baseline-hashes.json` confirmed byte-for-byte preservation.
+The retest used the existing server, Python 3.12 environment, and Codex registration. See [baseline hashes](request-baseline-hashes.json) for the files checked.
 
 All four original prompt logs were downloaded again through the GitHub connector at commit `d3e7a6cc629cce90ca7fe16a8feecf386f599ec3`. Their bytes, including original line endings and BOM where present, matched the original Git blob hashes before saving with distinct filenames. Source paths and hashes are in `../logs/SOURCES.json`.
 

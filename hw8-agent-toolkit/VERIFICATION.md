@@ -1,6 +1,6 @@
-# Observed setup verification
+# Toolkit setup checks
 
-Run date: November 8, 2026. These are toolkit setup checks, not completed assignment demonstrations or personal reflections.
+See [Demonstration](DEMONSTRATION.md) for the two Crossy Road runs and [Iteration](ITERATION.md) for the Feature Check revision and rerun.
 
 | Check | Actual result | Evidence |
 | --- | --- | --- |
@@ -25,15 +25,3 @@ Retest: reran the stdio checks, unit tests, and a new read-only Codex smoke sess
 The temporary test-skill also produced a real loader error because its file began with a blank line before frontmatter. The existing feature-check had the same leading blank line; it was removed while retaining the working instructions. All eight real skills were validated and discovered, and feature-check was invoked before the temporary test-skill was removed.
 
 The first dependency download and first Codex diagnostic were blocked by the filesystem/network sandbox. They were retried with the required execution permissions. The blank-query error in the stdio stderr log is an intentional negative test. Existing unrelated plugin-icon and state-database warnings appear in Codex stderr; the successful tool-call event is the execution evidence.
-
-## Limits and remaining work
-
-- No two assignment demonstrations have been performed. The smoke checks test infrastructure only.
-- No separate fresh assignment checker session has assessed demonstration artifacts.
-- `DEMONSTRATION.md` and `ITERATION.md` intentionally contain placeholders. The setup failure above is factual evidence, but its suitability for the course iteration requirement has not been established; the student must select an actual iteration and add their own evidence and reflection.
-- The supplied request was used as requirements; the full course rubric was not supplied or independently verified.
-- No Git repository existed here, so no Git diff, commit, or push was performed. Git scope checking remains unavailable until a repository is present.
-- MCP was registered in the user's Codex configuration; the already-running parent chat does not dynamically gain the new tool. Execution was verified through the recorded Codex CLI session.
-- This is a line-based search over four historical logs. Tests do not prove every skill's behavior across arbitrary future tasks.
-
-Next action: restart Codex with this toolkit folder as its working directory and perform Demonstration 1 using an actual project issue. Explicitly invoke the chosen skill and ask it to call `hw8-past-bugs.search_past_bugs` before analyzing the issue. Save the prompt, visible call/result, resulting work, and actual verification in `DEMONSTRATION.md`.

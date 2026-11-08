@@ -47,4 +47,4 @@ The checker concluded: “Camera movement is partially verified; narrow viewport
 - [Successful-run stderr](feature-check-blind-retry-stderr.txt)
 - [File integrity comparison](feature-check-blind-integrity.json)
 
-All six clean-workspace files retained their initial SHA-256 hashes, and matched their original workspace counterparts after the checker finished. No additional files appeared in the clean workspace. No game code or existing tests were modified. Other than the requested skill edit, all new deliverables for this iteration are in evidence/. ITERATION.md and prior evidence were left unchanged.
+All six files in the checker workspace retained their original SHA-256 hashes, and no new files appeared.
