@@ -6,7 +6,7 @@ I chose my Crossy Road game because I’d had trouble with the camera bouncing w
 
 ## Run 1 — Review the camera
 
-I asked Codex to look up my old camera problems and inspect the current game. It called `search_past_bugs` with `camera`, `camera left`, and `camera forward`. The results included my report about the screen bouncing and the earlier discussion about keeping the camera still on sideways hops. Codex traced the movement code and spotted a risk when the player moved backward. [Tool calls and responses](evidence/demonstration-1-camera-mcp-calls.json) · [Work-session report](evidence/demonstration-1-camera-review.md)
+I asked Codex to look up my old camera problems and inspect the current game. It called search_past_bugs with camera, camera left, and camera forward. The results included my report about the screen bouncing and the earlier discussion about keeping the camera still on sideways hops. Codex traced the movement code and spotted a risk when the player moved backward. [Tool calls and responses](evidence/demonstration-1-camera-mcp-calls.json) · [Work-session report](evidence/demonstration-1-camera-review.md)
 
 In a separate session, Feature Check ran the movement and camera functions in memory. Sideways movement passed, and the camera eased toward its target when moving forward. Backtracking failed. After the chicken went from lane 20 back to lane 0, the camera stayed near lane 20 and the chicken’s position projected outside the view. I agreed with the checker based on that test, and used the finding to guide the second run. [Checker transcript and test output](evidence/crossyroad-session-excerpts.md#run-1-separate-checker)
 
