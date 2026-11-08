@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a1bd32-e0a9-77b3-a7b5-2fb5d3061ad5"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’m using the feature-check skill to verify the MCP smoke check by direct observation."}}
+{"type":"item.started","item":{"id":"item_1","type":"mcp_tool_call","server":"hw8-past-bugs","tool":"search_past_bugs","arguments":{"query":"camera"},"result":null,"error":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"mcp_tool_call","server":"hw8-past-bugs","tool":"search_past_bugs","arguments":{"query":"camera"},"result":null,"error":{"message":"MCP tool call requires approval, but approval policy is never"},"status":"failed"}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"FAIL: Called `search_past_bugs` exactly once with query `camera`. The tool did not succeed: approval was required, but the approval policy is `never`.\n\nNo filename or line number was returned. No files were edited, shell commands run, or work delegated."}}
+{"type":"turn.completed","usage":{"input_tokens":61901,"cached_input_tokens":54016,"cache_write_input_tokens":0,"output_tokens":156,"reasoning_output_tokens":0}}

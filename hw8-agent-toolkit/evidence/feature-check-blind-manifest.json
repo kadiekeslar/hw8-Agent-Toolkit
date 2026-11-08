@@ -1,0 +1,12 @@
+{
+  "workspace": "/private/tmp/hw8-feature-check-blind-o976pzmy",
+  "prompt": "Verify the Crossy Road camera movement feature.",
+  "files_sha256_before": {
+    "crossyroad/game.js": "78c949d3bbacc829413d024a475814b1316d920da9840036da1fb463094bb573",
+    "crossyroad/index.html": "d061e6322a156f599007ef4b9f23e6624f1da7be8cf8759dd81f799e2f0dd799",
+    "crossyroad/README.md": "fef37237b97c6f34d706547d0877b07d1c3bfc2241223468dfbfb7c734eff2c5",
+    "crossyroad/style.css": "ddc0fb7fa84dfd117abac48c15a160a850b00151497418752e605bf9ce61294b",
+    ".agents/skills/feature-check/SKILL.md": "96eba9400123dfdba898d1c736ba69cb08b72fb5b39979a37e05d960e6fcc5c4",
+    "hw8-agent-toolkit/tests/test_crossyroad_camera.cjs": "692184cb3809769b7471013d23f98cefd659c03dabe2d374b3a6ef2d41919c63"
+  }
+}

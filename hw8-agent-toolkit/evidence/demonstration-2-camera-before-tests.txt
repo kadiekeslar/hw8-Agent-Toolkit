@@ -1,0 +1,37 @@
+Command: CAMERA_SOURCE=/tmp/hw8-camera-before.js node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+Date: 2026-11-08 America/New_York
+State: before camera fix, final test harness
+Exit code: 1
+✔ sideways hops preserve settled camera; residual forward easing is independent of X/Y (17.072291ms)
+✔ forward lanes keep original three-lane buffer and 0.035 easing without snapping (6.023708ms)
+✖ lane 20 to lane 0 stays visible at 30/60/120 fps and grid X -3/0/3 (7.596958ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.557666
+
+✖ failing tests:
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:135:1
+✖ lane 20 to lane 0 stays visible at 30/60/120 fps and grid X -3/0/3 (7.596958ms)
+  AssertionError [ERR_ASSERTION]: lane 11, cameraZ -68.000, projected {"x":-0.9842200216897026,"y":-1.0198950454950573,"depth":6.747336161303645}
+      at assertVisible (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:90:12)
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:28)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:141:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,15 @@
+--- before/.agents/skills/feature-check/SKILL.md
++++ after/.agents/skills/feature-check/SKILL.md
+@@ -11,9 +11,9 @@
+ 
+ 1. Identify what the feature is supposed to do.
+ 2. Find the code responsible for that feature.
+-3. Check whether the implementation matches the expected behavior.
+-4. Run existing tests when possible.
+-5. Report anything that fails or cannot be verified.
++3. Identify relevant edge cases, boundary conditions, and regressions in related behavior; do not limit coverage to the normal path or existing tests.
++4. Check expected behavior with existing tests and targeted checks when possible, including those edge cases and regressions.
++5. Report coverage, actual results, and anything that fails or cannot be verified. Declare the feature fully verified only when relevant checks pass; missing evidence remains UNVERIFIED.
+ 
+ ## Output Format
+ 

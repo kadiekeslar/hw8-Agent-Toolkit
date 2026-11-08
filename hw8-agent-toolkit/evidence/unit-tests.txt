@@ -1,0 +1,11 @@
+test_empty_and_missing_corpus (test_bug_search.SearchTests.test_empty_and_missing_corpus) ... ok
+test_external_symlink_is_skipped (test_bug_search.SearchTests.test_external_symlink_is_skipped) ... ok
+test_invalid_query (test_bug_search.SearchTests.test_invalid_query) ... ok
+test_limit_and_unreadable_text (test_bug_search.SearchTests.test_limit_and_unreadable_text) ... ok
+test_no_match_and_literal_input (test_bug_search.SearchTests.test_no_match_and_literal_input) ... ok
+test_passages_and_line_numbers (test_bug_search.SearchTests.test_passages_and_line_numbers) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.007s
+
+OK

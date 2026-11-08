@@ -1,0 +1,15 @@
+Command: node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+Date: 2026-11-08 America/New_York
+State: after camera fix, final test harness
+Exit code: 0
+✔ sideways hops preserve settled camera; residual forward easing is independent of X/Y (17.668625ms)
+✔ forward lanes keep original three-lane buffer and 0.035 easing without snapping (6.086791ms)
+✔ lane 20 to lane 0 stays visible at 30/60/120 fps and grid X -3/0/3 (104.287375ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.644334

@@ -1,0 +1,29 @@
+{
+  "files": {
+    "crossyroad/game.js": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    },
+    "crossyroad/index.html": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    },
+    "crossyroad/README.md": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    },
+    "crossyroad/style.css": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    },
+    ".agents/skills/feature-check/SKILL.md": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    },
+    "hw8-agent-toolkit/tests/test_crossyroad_camera.cjs": {
+      "clean_copy_unchanged": true,
+      "original_matches_copy": true
+    }
+  },
+  "additional_files": []
+}

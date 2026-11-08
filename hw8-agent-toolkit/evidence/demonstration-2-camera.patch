@@ -1,0 +1,17 @@
+--- a/crossyroad/game.js
++++ b/crossyroad/game.js
+@@ -3101,7 +3101,8 @@
+   const progress =
+     Math.max(
+       0,
+-      highestLane - 3
++      // Follow completed lanes in either direction; highestLane is for score.
++      currentLaneIndex - 3
+     );
+ 
+ 
+@@ -3282,4 +3283,4 @@
+ 
+     resizeCamera();
+   }
+-);+);

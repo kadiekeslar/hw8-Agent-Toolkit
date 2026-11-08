@@ -1,0 +1,16 @@
+VALID: change-scope-check
+VALID: code-cleanup
+VALID: code-explanation
+VALID: feature-check
+VALID: performance-check
+VALID: requirements-check
+VALID: security-check
+VALID: test-generator
+CODEX DISCOVERED: change-scope-check
+CODEX DISCOVERED: code-cleanup
+CODEX DISCOVERED: code-explanation
+CODEX DISCOVERED: feature-check
+CODEX DISCOVERED: performance-check
+CODEX DISCOVERED: requirements-check
+CODEX DISCOVERED: security-check
+CODEX DISCOVERED: test-generator

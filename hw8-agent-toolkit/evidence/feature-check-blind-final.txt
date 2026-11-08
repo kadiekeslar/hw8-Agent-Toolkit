@@ -1,0 +1,8 @@
+Camera movement is partially verified; narrow viewports have a visibility issue.
+
+- **PASS:** All 3 regression tests passed: sideways stability, forward easing with a three-lane buffer, and backtracking from lane 20 to 0 at 30/60/120 FPS.
+- **PASS:** Additional runtime checks confirmed movement boundaries, queued hops, and the skyline’s camera offset.
+- **FAIL:** At lane 20, grid X=3, the player’s body center falls outside square and portrait viewports. The [camera frustum](/private/tmp/hw8-feature-check-blind-o976pzmy/crossyroad/game.js:71) narrows while the [camera’s X position stays fixed](/private/tmp/hw8-feature-check-blind-o976pzmy/crossyroad/game.js:3122). Confirmed geometrically, without rendering.
+- **UNVERIFIED:** Browser/WebGL appearance, occlusion, and live resize behavior.
+
+No files were modified.

@@ -1,0 +1,239 @@
+Command: node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+State: before camera fix
+Exit code: 1
+✖ sideways hops preserve settled camera; residual forward easing is independent of X/Y (1.229125ms)
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (0.540708ms)
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (1.059ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 42.79125
+
+✖ failing tests:
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:94:1
+✖ sideways hops preserve settled camera; residual forward easing is independent of X/Y (1.229125ms)
+  evalmachine.<anonymous>:265
+    cameraZ =
+    ^
+  
+  ReferenceError: THREE is not defined
+      at updateCamera (evalmachine.<anonymous>:265:3)
+      at evalmachine.<anonymous>:391:5
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at harness (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:25:6)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:95:13)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.start (node:internal/test_runner/test:1257:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:117:1
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (0.540708ms)
+  evalmachine.<anonymous>:265
+    cameraZ =
+    ^
+  
+  ReferenceError: THREE is not defined
+      at updateCamera (evalmachine.<anonymous>:265:3)
+      at evalmachine.<anonymous>:391:5
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at harness (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:25:6)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:118:13)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:134:1
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (1.059ms)
+  evalmachine.<anonymous>:265
+    cameraZ =
+    ^
+  
+  ReferenceError: THREE is not defined
+      at updateCamera (evalmachine.<anonymous>:265:3)
+      at evalmachine.<anonymous>:391:5
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at harness (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:25:6)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:135:13)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+
+Second harness setup attempt:
+Command: node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+State: before camera fix, corrected test harness
+Exit code: 1
+✖ sideways hops preserve settled camera; residual forward easing is independent of X/Y (1.439917ms)
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (0.644334ms)
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (0.865459ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40.980333
+
+✖ failing tests:
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:95:1
+✖ sideways hops preserve settled camera; residual forward easing is independent of X/Y (1.439917ms)
+  evalmachine.<anonymous>:388
+      scene,
+      ^
+  
+  ReferenceError: scene is not defined
+      at animate (evalmachine.<anonymous>:388:5)
+      at evalmachine.<anonymous>:1:32
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at run (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:53:26)
+      at Object.frame (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:58:22)
+      at Object.settle (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:59:51)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:99:7)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:118:1
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (0.644334ms)
+  evalmachine.<anonymous>:388
+      scene,
+      ^
+  
+  ReferenceError: scene is not defined
+      at animate (evalmachine.<anonymous>:388:5)
+      at evalmachine.<anonymous>:1:32
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at run (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:53:26)
+      at Object.frame (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:58:22)
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:16)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:122:7)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:135:1
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (0.865459ms)
+  evalmachine.<anonymous>:388
+      scene,
+      ^
+  
+  ReferenceError: scene is not defined
+      at animate (evalmachine.<anonymous>:388:5)
+      at evalmachine.<anonymous>:1:32
+      at Script.runInContext (node:vm:149:12)
+      at Object.runInContext (node:vm:301:6)
+      at run (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:53:26)
+      at Object.frame (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:58:22)
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:16)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:137:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+
+Projection sign error corrected after this attempt:
+Command: node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+State: before camera fix, corrected test harness
+Exit code: 1
+✔ sideways hops preserve settled camera; residual forward easing is independent of X/Y (21.006ms)
+✔ forward lanes keep original three-lane buffer and 0.035 easing without snapping (7.635958ms)
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (7.208917ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.090125
+
+✖ failing tests:
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:135:1
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (7.208917ms)
+  AssertionError [ERR_ASSERTION]: lane 16, cameraZ -68.000, projected {"x":-0.21017198379831495,"y":1.0073184164164493,"depth":14.098647274060838}
+      at assertVisible (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:89:12)
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:28)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:139:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+Forward visibility assertion exposed existing forward clipping; removed from forward easing regression scope:
+Command: node --test hw8-agent-toolkit/tests/test_crossyroad_camera.cjs
+State: before camera fix, corrected test harness and projection basis
+Exit code: 1
+✔ sideways hops preserve settled camera; residual forward easing is independent of X/Y (16.723875ms)
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (2.086625ms)
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (7.118125ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.198333
+
+✖ failing tests:
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:118:1
+✖ forward lanes keep original three-lane buffer and 0.035 easing without snapping (2.086625ms)
+  AssertionError [ERR_ASSERTION]: lane 6, cameraZ -3.904, projected {"x":0.2150647550142052,"y":1.003123042231457,"depth":35.704052592435126}
+      at assertVisible (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:89:12)
+      at /Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:126:7
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:28)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:122:7)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:135:1
+✖ lane 20 to lane 0 remains visible during every backward hop at 60 fps (7.118125ms)
+  AssertionError [ERR_ASSERTION]: lane 13, cameraZ -68.000, projected {"x":-0.3947132378651353,"y":-1.0202515974912092,"depth":7.854222536864668}
+      at assertVisible (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:89:12)
+      at Object.move (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:63:28)
+      at TestContext.<anonymous> (/Users/kadiekeslar/Desktop/15113/hw8-agent-toolkit/tests/test_crossyroad_camera.cjs:139:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

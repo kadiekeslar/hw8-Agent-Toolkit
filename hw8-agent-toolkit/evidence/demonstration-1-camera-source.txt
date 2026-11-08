@@ -1,0 +1,628 @@
+--- crossyroad/game.js:1-6 ---
+1: // ============================================================
+2: // 412 CROSSY ROAD
+3: // FULL PITTSBURGH VERSION
+4: // ============================================================
+5: 
+6: const TILE = 4;
+
+--- crossyroad/game.js:61-95 ---
+61: // ============================================================
+62: // CAMERA
+63: // ============================================================
+64: 
+65: const CAMERA_SIZE = 25;
+66: 
+67: const camera =
+68:   new THREE.OrthographicCamera();
+69: 
+70: 
+71: function resizeCamera() {
+72: 
+73:   const aspect =
+74:     window.innerWidth /
+75:     window.innerHeight;
+76: 
+77:   camera.left =
+78:     -(CAMERA_SIZE * aspect) / 2;
+79: 
+80:   camera.right =
+81:     (CAMERA_SIZE * aspect) / 2;
+82: 
+83:   camera.top =
+84:     CAMERA_SIZE / 2;
+85: 
+86:   camera.bottom =
+87:     -CAMERA_SIZE / 2;
+88: 
+89:   camera.near = 0.1;
+90:   camera.far = 230;
+91: 
+92:   camera.updateProjectionMatrix();
+93: }
+94: 
+95: resizeCamera();
+
+--- crossyroad/game.js:1500-1520 ---
+1500: 
+1501: 
+1502: // ============================================================
+1503: // GAME STATE
+1504: // ============================================================
+1505: 
+1506: const lanes = [];
+1507: 
+1508: let score = 0;
+1509: 
+1510: let highestLane = 0;
+1511: 
+1512: let currentLaneIndex = 0;
+1513: 
+1514: let currentGridX = 0;
+1515: 
+1516: let gameOver = false;
+1517: 
+1518: 
+1519: // ============================================================
+1520: // CITY BUILDINGS
+
+--- crossyroad/game.js:2500-2818 ---
+2500: // ============================================================
+2501: // MOVEMENT
+2502: // ============================================================
+2503: 
+2504: let hopping = false;
+2505: 
+2506: let queuedMove = null;
+2507: 
+2508: let hopStart = 0;
+2509: 
+2510: const HOP_TIME =
+2511:   0.15;
+2512: 
+2513: 
+2514: let startX = 0;
+2515: let startZ = 0;
+2516: 
+2517: let targetX = 0;
+2518: let targetZ = 0;
+2519: 
+2520: let targetGridX = 0;
+2521: let targetLaneIndex = 0;
+2522: 
+2523: 
+2524: function tryMove(
+2525:   dx,
+2526:   laneMove
+2527: ) {
+2528: 
+2529:   if (
+2530:     gameOver
+2531:   ) {
+2532: 
+2533:     return;
+2534:   }
+2535: 
+2536: 
+2537:   if (
+2538:     hopping
+2539:   ) {
+2540: 
+2541:     queuedMove = {
+2542:       dx,
+2543:       laneMove
+2544:     };
+2545: 
+2546:     return;
+2547:   }
+2548: 
+2549: 
+2550:   const nextX =
+2551:     currentGridX +
+2552:     dx;
+2553: 
+2554: 
+2555:   const nextLane =
+2556:     currentLaneIndex +
+2557:     laneMove;
+2558: 
+2559: 
+2560:   // Keeps player near middle,
+2561:   // buildings remain visible
+2562: 
+2563:   if (
+2564:     Math.abs(nextX) > 3
+2565:   ) {
+2566: 
+2567:     return;
+2568:   }
+2569: 
+2570: 
+2571:   if (
+2572:     nextLane < 0
+2573:   ) {
+2574: 
+2575:     return;
+2576:   }
+2577: 
+2578: 
+2579:   while (
+2580:     nextLane >=
+2581:     lanes.length
+2582:   ) {
+2583: 
+2584:     createLane(
+2585:       lanes.length
+2586:     );
+2587:   }
+2588: 
+2589: 
+2590:   startX =
+2591:     chicken.position.x;
+2592: 
+2593:   startZ =
+2594:     chicken.position.z;
+2595: 
+2596: 
+2597:   targetX =
+2598:     nextX * TILE;
+2599: 
+2600:   targetZ =
+2601:     -nextLane * TILE;
+2602: 
+2603: 
+2604:   targetGridX =
+2605:     nextX;
+2606: 
+2607:   targetLaneIndex =
+2608:     nextLane;
+2609: 
+2610: 
+2611:   hopping =
+2612:     true;
+2613: 
+2614: 
+2615:   hopStart =
+2616:     performance.now() /
+2617:     1000;
+2618: 
+2619: 
+2620:   // Rotate chicken
+2621: 
+2622:   if (
+2623:     laneMove === 1
+2624:   ) {
+2625: 
+2626:     chicken.rotation.y =
+2627:       0;
+2628:   }
+2629: 
+2630: 
+2631:   else if (
+2632:     laneMove === -1
+2633:   ) {
+2634: 
+2635:     chicken.rotation.y =
+2636:       Math.PI;
+2637:   }
+2638: 
+2639: 
+2640:   else if (
+2641:     dx === 1
+2642:   ) {
+2643: 
+2644:     chicken.rotation.y =
+2645:       Math.PI / 2;
+2646:   }
+2647: 
+2648: 
+2649:   else {
+2650: 
+2651:     chicken.rotation.y =
+2652:       -Math.PI / 2;
+2653:   }
+2654: }
+2655: 
+2656: 
+2657: // ============================================================
+2658: // ARROW KEYS ONLY
+2659: // ============================================================
+2660: 
+2661: document.addEventListener(
+2662:   "keydown",
+2663:   event => {
+2664: 
+2665:     if (
+2666:       event.key.startsWith(
+2667:         "Arrow"
+2668:       )
+2669:     ) {
+2670: 
+2671:       event.preventDefault();
+2672:     }
+2673: 
+2674: 
+2675:     if (
+2676:       gameOver
+2677:     ) {
+2678: 
+2679:       if (
+2680:         event.key ===
+2681:         "ArrowUp"
+2682:       ) {
+2683: 
+2684:         location.reload();
+2685:       }
+2686: 
+2687:       return;
+2688:     }
+2689: 
+2690: 
+2691:     if (
+2692:       event.key ===
+2693:       "ArrowUp"
+2694:     ) {
+2695: 
+2696:       tryMove(
+2697:         0,
+2698:         1
+2699:       );
+2700:     }
+2701: 
+2702: 
+2703:     else if (
+2704:       event.key ===
+2705:       "ArrowDown"
+2706:     ) {
+2707: 
+2708:       tryMove(
+2709:         0,
+2710:         -1
+2711:       );
+2712:     }
+2713: 
+2714: 
+2715:     else if (
+2716:       event.key ===
+2717:       "ArrowLeft"
+2718:     ) {
+2719: 
+2720:       tryMove(
+2721:         -1,
+2722:         0
+2723:       );
+2724:     }
+2725: 
+2726: 
+2727:     else if (
+2728:       event.key ===
+2729:       "ArrowRight"
+2730:     ) {
+2731: 
+2732:       tryMove(
+2733:         1,
+2734:         0
+2735:       );
+2736:     }
+2737:   }
+2738: );
+2739: 
+2740: 
+2741: // ============================================================
+2742: // FINISH HOP
+2743: // ============================================================
+2744: 
+2745: function finishHop() {
+2746: 
+2747:   chicken.position.set(
+2748:     targetX,
+2749:     0,
+2750:     targetZ
+2751:   );
+2752: 
+2753: 
+2754:   currentGridX =
+2755:     targetGridX;
+2756: 
+2757: 
+2758:   currentLaneIndex =
+2759:     targetLaneIndex;
+2760: 
+2761: 
+2762:   hopping =
+2763:     false;
+2764: 
+2765: 
+2766:   if (
+2767:     currentLaneIndex >
+2768:     highestLane
+2769:   ) {
+2770: 
+2771:     highestLane =
+2772:       currentLaneIndex;
+2773: 
+2774: 
+2775:     score =
+2776:       highestLane;
+2777: 
+2778: 
+2779:     document.getElementById(
+2780:       "score"
+2781:     ).textContent =
+2782:       score;
+2783: 
+2784: 
+2785:     while (
+2786:       lanes.length <
+2787:       highestLane + 24
+2788:     ) {
+2789: 
+2790:       createLane(
+2791:         lanes.length
+2792:       );
+2793:     }
+2794:   }
+2795: 
+2796: 
+2797:   checkLanding();
+2798: 
+2799: 
+2800:   if (
+2801:     queuedMove &&
+2802:     !gameOver
+2803:   ) {
+2804: 
+2805:     const next =
+2806:       queuedMove;
+2807: 
+2808: 
+2809:     queuedMove =
+2810:       null;
+2811: 
+2812: 
+2813:     tryMove(
+2814:       next.dx,
+2815:       next.laneMove
+2816:     );
+2817:   }
+2818: }
+
+--- crossyroad/game.js:3092-3285 ---
+3092: // ============================================================
+3093: // CAMERA
+3094: // ============================================================
+3095: 
+3096: let cameraZ = 0;
+3097: 
+3098: 
+3099: function updateCamera() {
+3100: 
+3101:   const progress =
+3102:     Math.max(
+3103:       0,
+3104:       highestLane - 3
+3105:     );
+3106: 
+3107: 
+3108:   const target =
+3109:     -progress *
+3110:     TILE;
+3111: 
+3112: 
+3113:   cameraZ =
+3114:     THREE.MathUtils.lerp(
+3115:       cameraZ,
+3116:       target,
+3117:       0.035
+3118:     );
+3119: 
+3120: 
+3121:   camera.position.set(
+3122:     8,
+3123:     16,
+3124:     cameraZ + 15
+3125:   );
+3126: 
+3127: 
+3128:   camera.lookAt(
+3129:     0,
+3130:     0,
+3131:     cameraZ - 7
+3132:   );
+3133: 
+3134: 
+3135:   // Pittsburgh skyline stays ahead
+3136: 
+3137:   skyline.position.z =
+3138:     cameraZ - 58;
+3139: }
+3140: 
+3141: 
+3142: camera.position.set(
+3143:   8,
+3144:   16,
+3145:   15
+3146: );
+3147: 
+3148: 
+3149: camera.lookAt(
+3150:   0,
+3151:   0,
+3152:   -7
+3153: );
+3154: 
+3155: 
+3156: // ============================================================
+3157: // GAME LOOP
+3158: // ============================================================
+3159: 
+3160: let previous =
+3161:   performance.now() /
+3162:   1000;
+3163: 
+3164: 
+3165: function animate() {
+3166: 
+3167:   requestAnimationFrame(
+3168:     animate
+3169:   );
+3170: 
+3171: 
+3172:   const now =
+3173:     performance.now() /
+3174:     1000;
+3175: 
+3176: 
+3177:   const delta =
+3178:     Math.min(
+3179:       now - previous,
+3180:       0.05
+3181:     );
+3182: 
+3183: 
+3184:   previous =
+3185:     now;
+3186: 
+3187: 
+3188:   // Hop
+3189: 
+3190:   if (
+3191:     hopping
+3192:   ) {
+3193: 
+3194:     const t =
+3195:       Math.min(
+3196:         (
+3197:           now -
+3198:           hopStart
+3199:         ) /
+3200:         HOP_TIME,
+3201:         1
+3202:       );
+3203: 
+3204: 
+3205:     chicken.position.x =
+3206:       THREE.MathUtils.lerp(
+3207:         startX,
+3208:         targetX,
+3209:         t
+3210:       );
+3211: 
+3212: 
+3213:     chicken.position.z =
+3214:       THREE.MathUtils.lerp(
+3215:         startZ,
+3216:         targetZ,
+3217:         t
+3218:       );
+3219: 
+3220: 
+3221:     chicken.position.y =
+3222:       Math.sin(
+3223:         t *
+3224:         Math.PI
+3225:       ) *
+3226:       1.2;
+3227: 
+3228: 
+3229:     if (
+3230:       t >= 1
+3231:     ) {
+3232: 
+3233:       finishHop();
+3234:     }
+3235:   }
+3236: 
+3237: 
+3238:   if (
+3239:     !gameOver
+3240:   ) {
+3241: 
+3242:     updateObjects(
+3243:       delta
+3244:     );
+3245: 
+3246: 
+3247:     updateRiverPlayer(
+3248:       delta
+3249:     );
+3250: 
+3251: 
+3252:     checkCars();
+3253:   }
+3254: 
+3255: 
+3256:   updateCamera();
+3257: 
+3258: 
+3259:   renderer.render(
+3260:     scene,
+3261:     camera
+3262:   );
+3263: }
+3264: 
+3265: 
+3266: animate();
+3267: 
+3268: 
+3269: // ============================================================
+3270: // RESIZE
+3271: // ============================================================
+3272: 
+3273: window.addEventListener(
+3274:   "resize",
+3275:   () => {
+3276: 
+3277:     renderer.setSize(
+3278:       window.innerWidth,
+3279:       window.innerHeight
+3280:     );
+3281: 
+3282: 
+3283:     resizeCamera();
+3284:   }
+3285: );
+
+--- crossyroad/index.html:1-34 ---
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: <head>
+4:   <meta charset="UTF-8" />
+5:   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+6:   <title>412 Crossy Road</title>
+7:   <link rel="stylesheet" href="style.css" />
+8: </head>
+9: <body>
+10:   <div id="score">0</div>
+11: 
+12:   <div id="cityLabel">PITTSBURGH</div>
+13: 
+14:   <div id="controls">↑ ↓ ← →</div>
+15: 
+16:   <div id="uiPanel">
+17:     <label for="jerseySelect">Chicken Jersey:</label>
+18:     <select id="jerseySelect">
+19:       <option value="steelers">Steelers</option>
+20:       <option value="pirates">Pirates</option>
+21:       <option value="penguins">Penguins</option>
+22:     </select>
+23:   </div>
+24: 
+25:   <div id="gameOver">
+26:     <h1>GAME OVER</h1>
+27:     <p id="finalScore">Score: 0</p>
+28:     <p class="restart">PRESS ↑ TO PLAY AGAIN</p>
+29:   </div>
+30: 
+31:   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+32:   <script src="game.js"></script>
+33: </body>
+34: </html>
+
+--- crossyroad/README.md:40-45 ---
+40: ### Camera
+41: - **Type**: Orthographic (true 2.5D isometric perspective)
+42: - **Position**: (0, 9, 9) - diagonal behind and above the player
+43: - **Target**: (0, 0, 0) - player area
+44: - **View Size**: 18 units wide × 14 units tall
+45: - **Angle**: ~45° forward tilt (classic Crossy Road perspective)
