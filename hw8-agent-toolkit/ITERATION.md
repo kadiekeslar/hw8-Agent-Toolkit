@@ -4,7 +4,7 @@ November 6, 2026
 
 ## What I missed
 
-After the Crossy Road backtracking fix, all three camera tests passed. A separate Feature Check session tried narrower screen sizes and found that the chicken’s center could still leave the view. The existing tests used 16:9. The original skill told Codex to run existing tests when possible, which left it up to the agent to decide whether to look for cases those tests missed. My second checker did look further, and I wanted that to be part of the instructions every time. [Original skill](evidence/feature-check-before-iteration.SKILL.md) · [Independent check](evidence/demonstration-2-independent-check.md)
+After the Crossy Road backtracking fix, all three camera tests passed. A separate Feature Check session tried narrower screen sizes and found that the chicken’s center could still leave the view. The existing tests used 16:9. The original skill told Codex to run existing tests when possible, which left it up to the agent to decide whether to look for cases those tests missed. My secondchecker did look further, and I wanted that to be part of the instructions every time. [Original skill](evidence/feature-check-before-iteration.SKILL.md) · [Independent check](evidence/demonstration-2-independent-check.md)
 
 ## What I changed
 
