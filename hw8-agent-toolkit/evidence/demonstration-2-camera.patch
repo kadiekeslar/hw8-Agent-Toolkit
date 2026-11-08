@@ -1,6 +1,7 @@
+diff --git a/crossyroad/game.js b/crossyroad/game.js
 --- a/crossyroad/game.js
 +++ b/crossyroad/game.js
-@@ -3101,7 +3101,8 @@
+@@ -3101,7 +3101,8 @@ function updateCamera() {
    const progress =
      Math.max(
        0,
@@ -10,8 +11,10 @@
      );
  
  
-@@ -3282,4 +3283,4 @@
+@@ -3282,4 +3283,4 @@ window.addEventListener(
  
      resizeCamera();
    }
--);+);
+-);
+\ No newline at end of file
++);
