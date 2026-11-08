@@ -2,7 +2,7 @@
 
 November 6, 2026
 
-I chose my Crossy Road game because I’d had trouble with the camera bouncing when I moved the chicken. For both runs, I used one Codex session to work on the game with `search_past_bugs` and opened a fresh session for Feature Check. The [session excerpts](evidence/crossyroad-session-excerpts.md) show the four session IDs, prompts, tool calls, and checker results.
+I chose my Crossy Road game because I’d had trouble with the camera bouncing when I moved the chicken. For both runs, I used one Codex session to work on the game with  search_past_bugs  and opened a fresh session for Feature Check. The [session excerpts](evidence/crossyroad-session-excerpts.md) show the four session IDs, prompts, tool calls, and checker results.
 
 ## Run 1 — Review the camera
 
@@ -12,7 +12,7 @@ In a separate session, Feature Check ran the movement and camera functions in me
 
 ## Run 2 — Fix backtracking and check again
 
-I asked Codex to fix backtracking while keeping the sideways stability and forward easing. It called `search_past_bugs` with `camera`, `camera following`, and `camera forward`. The old reports helped explain why the camera should ignore sideways motion. Codex changed the camera target to follow the current completed lane instead of the highest lane reached. The backward test failed before the change, and all three focused tests passed after it. [Tool calls and responses](evidence/demonstration-2-camera-mcp-calls.json) · [Game patch](evidence/demonstration-2-camera.patch) · [Before tests](evidence/demonstration-2-camera-before-tests.txt) · [After tests](evidence/demonstration-2-camera-after-tests.txt)
+I asked Codex to fix backtracking while keeping the sideways stability and forward easing. It called  search_past_bugs  with  camera ,  camera following , and  camera forward . The old reports helped explain why the camera should ignore sideways motion. Codex changed the camera target to follow the current completed lane instead of the highest lane reached. The backward test failed before the change, and all three focused tests passed after it. [Tool calls and responses](evidence/demonstration-2-camera-mcp-calls.json) · [Game patch](evidence/demonstration-2-camera.patch) · [Before tests](evidence/demonstration-2-camera-before-tests.txt) · [After tests](evidence/demonstration-2-camera-after-tests.txt)
 
 I opened another fresh Feature Check session. The checker confirmed sideways stability, forward easing, and highest-lane scoring. It also repeated the backward test at other screen sizes. The chicken’s center stayed in view in all 2,040 sampled frames at 16:9, but fell outside the view in 43 frames at 4:3 and 1,296 frames at 9:16. [Checker transcript](evidence/crossyroad-session-excerpts.md#run-2-separate-checker) · [Full test report](evidence/demonstration-2-independent-check.md)
 
