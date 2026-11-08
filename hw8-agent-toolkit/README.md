@@ -35,4 +35,4 @@ See the [recorded registration](evidence/mcp-registration.json) and the [complet
 
 I used the checker and server examples from the [HW8 assignment](https://www.cs.cmu.edu/~113/hw8.html) as starting points. The server uses [FastMCP](https://gofastmcp.com/docs/servers/tools), and the skill layout follows the [Agent Skills format](https://agentskills.io).
 
-I used ChatGPT to brainstorm and Codex to help build the skills and server, set them up, run tests, and copyedit my write-ups. I chose what the toolkit should do and reviewed the checker’s results. The [session excerpts](evidence/crossyroad-session-excerpts.md) show the work Codex did during the demonstrations.
+I used ChatGPT to brainstorm and Codex to help build the skills and server, set them up, and run tests. I chose what the toolkit should do and reviewed the checker’s results. The [session excerpts](evidence/crossyroad-session-excerpts.md) show the work Codex did during the demonstrations.
